@@ -1,16 +1,19 @@
 import styled from 'styled-components';
+
 import { ReactSVG } from 'react-svg';
 
-export const Header = styled.header`
+export const BodyContainer = styled.div`
     width: 100%;
-    margin-top: 5px;
-    overflow: hidden;
+    height: 50vh;
+    position: relative;
 `;
 
-export const SVGHeader = styled(ReactSVG)`
+export const SVGBody = styled(ReactSVG)`
     width: 100%;
     height: max-content;
     svg{
         width: 100%;
+        position: absolute;
+        top: -15%;
     }
 `;
