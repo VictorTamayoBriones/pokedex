@@ -17,3 +17,10 @@ export const SVGBody = styled(ReactSVG)`
         top: -15%;
     }
 `;
+
+export const Container = styled.div`
+    width: 90%;
+    margin: 20px auto 0 auto;
+    position: relative;
+    z-index: 100;
+`;
