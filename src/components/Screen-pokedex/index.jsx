@@ -1,15 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext } from "react"
 import { Container, Screen } from "./style"
+import { InitialTextContext } from "../BodyPokedex/context/InititalText"
 
 export const ScreenPokedex = () =>{
 
-    const [showText, setShowText]=useState(true);
-
-    useEffect(()=>{
-        setTimeout(()=>{
-            setShowText(false);
-        }, 2500)
-    }, [])
+    const {showText}=useContext(InitialTextContext)
 
     return(
         <Container>
