@@ -17,4 +17,12 @@ export const Screen = styled.div`
     height: 220px;
     background: ${ theme.grisOscuro };
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1{
+        opacity: ${(props)=>props.showText ? '1' : '0'};
+        transition: 1s ease-in all;
+    }
 `;

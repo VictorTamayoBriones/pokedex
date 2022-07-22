@@ -6,4 +6,8 @@
   font-family: 'PT Mono', monospace;
 }
 
-/* font-family: 'Rampart One', cursive; */
+h1{
+  font-family: 'Rampart One', cursive;
+  font-size: 55px;
+  text-align: center;
+}
