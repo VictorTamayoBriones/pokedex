@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from "react"
+import { getRandom } from "../../helpers/getRandom";
 import { getPokemonByName } from "../../service/getPokemonByName";
 import { CurrentPokemonContext } from "../BodyPokedex/context/CurrentPokemon";
 import { Form, InputContainer } from "./style"
@@ -22,7 +23,18 @@ export const FormSearch = () => {
                 setCurrentPokemon(data);
                 setIsLoading(false);
             })();
-        }
+
+        }else if( e.target.name === 'random' ){
+
+            setIsLoading(true);
+            const id = getRandom();
+            (async()=>{
+                const data = await getPokemonByName(id);
+                setCurrentPokemon(data);
+                setIsLoading(false);
+            })();
+
+        }else if( e.target.name === 'clean' ){ setCurrentPokemon({}) }
         
         setPokemonName('');
         refInput.current.blur();
