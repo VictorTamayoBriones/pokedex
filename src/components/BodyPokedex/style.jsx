@@ -10,11 +10,10 @@ export const BodyContainer = styled.div`
 
 export const SVGBody = styled(ReactSVG)`
     width: 100%;
-    height: max-content;
     svg{
         width: 100%;
         position: absolute;
-        top: -15%;
+        top: -19%;
     }
 `;
 

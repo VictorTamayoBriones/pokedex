@@ -5,17 +5,6 @@ export const Form = styled.form`
     width: 100%;
     margin-top: 20px;
 
-    input{
-        width: 100%;
-        background: ${ theme.grisOscuro };
-        border: 2px solid ${ theme.grisButton };
-        border-radius: 5px;
-        padding: 5px;
-        outline: none;
-        caret-color: #fff;
-        font-size: 22px;
-    }
-
     .buttons{
         display: flex;
         flex-wrap: wrap;
@@ -39,4 +28,52 @@ export const Form = styled.form`
             }
         }
     }
+
+    
+`;
+
+export const InputContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    label{
+        position: absolute;
+        z-index: 1;
+        left: 7px;
+        top: 7px;
+        font-size: 22px;
+        animation: placeholderAnimate .5s infinite ease-in-out;
+        pointer-events: none;
+
+        @keyframes placeholderAnimate {
+            0%{
+                color: #4c4c4c;
+            }
+            50%{
+                color: #b7b7b7
+            }
+            100%{
+                color: #e1e1e1
+            }
+        }
+    }
+
+    input{
+        width: 100%;
+        background: ${ theme.grisOscuro };
+        border: 2px solid ${ theme.grisButton };
+        border-radius: 5px;
+        padding: 5px;
+        outline: none;
+        caret-color: #fff;
+        font-size: 22px;
+
+        &:focus{
+            z-index: 3;
+        }
+    }
+
+
 `;

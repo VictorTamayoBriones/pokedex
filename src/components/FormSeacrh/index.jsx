@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Form } from "./style"
+import { Form, InputContainer } from "./style"
 
 export const FormSearch = () => {
 
@@ -8,8 +8,11 @@ export const FormSearch = () => {
     const handleChange = ({target:{value}}) => setPokemonName(value);
     return(
         <Form >
-
-            <input type="text"  placeholder="Pikachu" name='pokeName' value={pokemonName} onChange={ handleChange } />
+            <InputContainer>
+                <label htmlFor="pokeName">Search a pokemon</label>
+                <input type="text" name='pokeName' value={pokemonName} onChange={ handleChange } />
+            </InputContainer>
+            
 
             <div className="buttons">
                 <button>Search</button>
