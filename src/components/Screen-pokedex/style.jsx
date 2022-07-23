@@ -24,5 +24,14 @@ export const Screen = styled.div`
     h1{
         opacity: ${(props)=>props.showText ? '1' : '0'};
         transition: 1s ease-in all;
+        display: ${(props)=>props.deleteText ? 'none' : 'block'};
+    }
+
+    p{
+        text-align: center;
+    }
+
+    img{
+        width: 100%;
     }
 `;
