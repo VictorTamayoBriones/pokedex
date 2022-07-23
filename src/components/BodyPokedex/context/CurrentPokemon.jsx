@@ -4,7 +4,7 @@ export const CurrentPokemonContext = React.createContext();
 
 export const CurrentPokemonProvider = ({ children }) =>{
 
-    const [currentPokemon, setCurrentPokemon]=useState({});
+    const [currentPokemon, setCurrentPokemon]=useState(false);
     const [isLoading, setIsLoading]=useState(false);
 
     return(

@@ -7,15 +7,15 @@ export const ScreenPokedex = () =>{
 
     const {showText, deleteText}=useContext(InitialTextContext)
     const { currentPokemon, isLoading } = useContext(CurrentPokemonContext);
-    
+
     return(
         <Container>
             <Screen showText={ showText } deleteText={ deleteText } >
                 <h1>My Pokédex</h1>
 
                 { isLoading ? <p>Loading...</p> : ''}
-                
-                { currentPokemon != [] ? <img src={currentPokemon.sprites.front_default} alt="" />   : '' }
+
+                { currentPokemon === false ? '' : <img src={currentPokemon?.sprites?.front_default} alt="" />  }
             </Screen>
         </Container>
     )

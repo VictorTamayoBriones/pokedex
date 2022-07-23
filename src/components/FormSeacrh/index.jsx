@@ -1,10 +1,10 @@
-import { useContext, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { getPokemonByName } from "../../service/getPokemonByName";
 import { CurrentPokemonContext } from "../BodyPokedex/context/CurrentPokemon";
 import { Form, InputContainer } from "./style"
 
 export const FormSearch = () => {
-
+    const refInput = useRef();
     const { setCurrentPokemon, setIsLoading } = useContext(CurrentPokemonContext);
     const [pokemonName, setPokemonName] = useState('');
 
@@ -18,20 +18,35 @@ export const FormSearch = () => {
             setIsLoading(true);
 
             (async()=>{
-                const data = await getPokemonByName(pokemonName);
+                const data = await getPokemonByName(pokemonName.toLowerCase());
                 setCurrentPokemon(data);
                 setIsLoading(false);
             })();
         }
+        
+        setPokemonName('');
+        refInput.current.blur();
+    }
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        setIsLoading(true);
+
+        (async()=>{
+            const data = await getPokemonByName(pokemonName.toLowerCase());
+            setCurrentPokemon(data);
+            setIsLoading(false);
+        })();
 
         setPokemonName('');
+        refInput.current.blur();
     }
 
     return(
-        <Form>
+        <Form onSubmit={ handleSubmit } >
             <InputContainer>
                 <label htmlFor="pokeName">Search a pokemon</label>
-                <input type="text" name='pokeName' value={pokemonName} onChange={ handleChange } />
+                <input type="text" name='pokeName' value={pokemonName} onChange={ handleChange }  ref={refInput}/>
             </InputContainer>
             
 
