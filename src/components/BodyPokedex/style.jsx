@@ -14,6 +14,7 @@ export const SVGBody = styled(ReactSVG)`
         width: 100%;
         position: absolute;
         top: -19%;
+        display: none;
     }
 `;
 

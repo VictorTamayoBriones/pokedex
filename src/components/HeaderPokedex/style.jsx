@@ -13,4 +13,8 @@ export const SVGHeader = styled(ReactSVG)`
     svg{
         width: 100%;
     }
+
+    @media(min-width: 504px){
+        display: none;
+    }
 `;
