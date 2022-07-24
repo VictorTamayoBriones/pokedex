@@ -20,15 +20,19 @@ export const Screen = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     h1{
-        opacity: ${(props)=>props.showText ? '1' : '0'};
+        opacity: ${(props)=>props.textIsVisible ? '1' : '0'};
         transition: 1s ease-in all;
-        display: ${(props)=>props.deleteText ? 'none' : 'block'};
+        position: absolute;
     }
 
     p{
         text-align: center;
+        font-size: 30px;
+        position: absolute;
+        display: ${(props)=>props.isLoading ? 'block' : 'none'};
     }
 
     img{
