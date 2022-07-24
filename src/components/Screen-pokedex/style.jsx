@@ -21,6 +21,7 @@ export const Screen = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+    pointer-events: none;
 
     h1{
         opacity: ${(props)=>props.textIsVisible ? '1' : '0'};
@@ -37,5 +38,11 @@ export const Screen = styled.div`
 
     img{
         width: 100%;
+    }
+
+    @media(min-width: 600px){
+        img{
+            width: 30%;
+        }
     }
 `;

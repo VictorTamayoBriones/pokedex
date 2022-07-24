@@ -16,6 +16,7 @@ export const Form = styled.form`
             padding: 5px 15px;
             border: 1px solid ${ theme.grisOscuro };
             box-shadow: 0px 1px 5px ${ theme.grisButton };
+            cursor: pointer;
 
             &:nth-child(1){
                 background: ${ theme.verde2 };
