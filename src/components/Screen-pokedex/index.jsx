@@ -1,21 +1,23 @@
-import { useContext } from "react"
+import { useContext } from "react";
+import { CurrentPokemonContext } from "../../context/currentPokemon";
+import { InitialTextContext } from "../../context/InitialText";
 import { Container, Screen } from "./style"
-import { InitialTextContext } from "../BodyPokedex/context/InititalText"
-import { CurrentPokemonContext } from "../BodyPokedex/context/CurrentPokemon"
 
 export const ScreenPokedex = () =>{
 
-    const {showText, deleteText}=useContext(InitialTextContext)
     const { currentPokemon, isLoading } = useContext(CurrentPokemonContext);
+    const { textIsVisible } = useContext(InitialTextContext);
 
     return(
         <Container>
-            <Screen showText={ showText } deleteText={ deleteText } >
+            <Screen textIsVisible={ textIsVisible } isLoading={ isLoading } >
                 <h1>My Pokédex</h1>
-
-                { isLoading ? <p>Loading...</p> : ''}
-
-                { currentPokemon === false ? '' : <img src={currentPokemon?.sprites?.front_default} alt="" />  }
+                <p>Loading...</p>
+                {
+                    currentPokemon != {} ? 
+                    <img src={ currentPokemon?.sprites?.front_default } alt="" /> : ''
+                }
+                
             </Screen>
         </Container>
     )

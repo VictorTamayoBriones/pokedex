@@ -1,9 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Provider } from 'react-redux'
 import App from './App'
-import { CurrentPokemonProvider } from './components/BodyPokedex/context/CurrentPokemon'
-import { InitialTextProvider } from './components/BodyPokedex/context/InititalText'
+import { CurrentPokemonProvider } from './context/currentPokemon'
+import { InitialTextProvider } from './context/InitialText'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
