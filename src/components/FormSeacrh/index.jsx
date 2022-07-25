@@ -14,19 +14,23 @@ export const FormSearch = () => {
     
     const handleSubmit = (e) =>{
         e.preventDefault();
-        setIsLoading(true);
+        if( pokemonName != '' ){
+            setIsLoading(true);
+    
+            (async()=>{
+                setCurrentPokemon(await getPokemonByName(pokemonName.toLocaleLowerCase()));
+                setIsLoading(false);
+            })();
 
-        (async()=>{
-            setCurrentPokemon(await getPokemonByName(pokemonName.toLocaleLowerCase()));
-            setIsLoading(false);
-        })();
+            setPokemonName('');
 
-        setPokemonName('');
-        refInput.current.blur();
-        window.scroll({
-            top: 0,
-            behavior: 'smooth'
-        })
+            refInput.current.blur();
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
+            })
+        }
+
     }
 
     const handleClick = (e) =>{

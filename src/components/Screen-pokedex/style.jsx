@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const Screen = styled.div`
     width: 95%;
     height: 220px;
-    background: ${ theme.grisOscuro };
+    background: ${(props)=>props.color ? props.color : theme.grisOscuro };
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -27,6 +27,14 @@ export const Screen = styled.div`
         opacity: ${(props)=>props.textIsVisible ? '1' : '0'};
         transition: 1s ease-in all;
         position: absolute;
+    }
+
+    ul{
+        list-style: none;
+        li{
+            border-bottom: solid 1px ${ theme.amarilloClaro };
+            margin: 10px 0;
+        }
     }
 
     p{

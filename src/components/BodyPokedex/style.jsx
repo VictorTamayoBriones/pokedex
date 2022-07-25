@@ -21,6 +21,19 @@ export const BodyContainer = styled.div`
         border-radius: 10px 10px 0 0;
         background: ${ theme.rojo };
     }
+
+    &::after{
+        content: '';
+        width: 65px;
+        height: 5px;
+        position: absolute;
+        background: ${ theme.grisOscuro };
+        top: -5px;
+        right: 60px;
+        border-bottom:  solid 5px ${ theme.rojo };
+        border-right:  solid 5px ${ theme.rojo };
+        border-radius: 0 0 10px 0;
+    }
 `;
 
 export const Container = styled.div`
