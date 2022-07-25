@@ -1,1 +1,1 @@
-export const getRandom = () => Math.floor(Math.random() * 890);
+export const getRandom = () => Math.floor(Math.random() * 889);
