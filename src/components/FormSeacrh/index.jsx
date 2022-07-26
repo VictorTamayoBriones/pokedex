@@ -1,19 +1,24 @@
 import { useContext, useRef, useState } from "react"
 import { CurrentPokemonContext } from "../../context/currentPokemon";
 import { getRandom } from "../../helpers/getRandom";
+import { speakDetailsOnIphone } from "../../helpers/speakDetailsOnIphone";
 import { getPokemonByName } from "../../service/getPokemonByName";
 import { Form, InputContainer } from "./style"
 
 export const FormSearch = () => {
     const refInput = useRef();
 
-    const { setCurrentPokemon, setIsLoading } = useContext(CurrentPokemonContext);
+    const { currentPokemon, setCurrentPokemon, setIsLoading } = useContext(CurrentPokemonContext);
     const [pokemonName, setPokemonName] = useState('');
+
+    const msg = new SpeechSynthesisUtterance();
 
     const handleChange = ({target:{value}}) => setPokemonName(value);
     
     const handleSubmit = (e) =>{
         e.preventDefault();
+        window.speechSynthesis.speak(msg);
+        
         if( pokemonName != '' ){
             setIsLoading(true);
     
@@ -36,15 +41,22 @@ export const FormSearch = () => {
     const handleClick = (e) =>{
         e.preventDefault();
         setIsLoading(true);
+        window.speechSynthesis.speak(msg);
 
         if(e.target.name === 'random'){
 
             (async()=>{
                 setCurrentPokemon(await getPokemonByName(getRandom()));
                 setIsLoading(false);
+
+                
             })();
 
         }
+    }
+
+    const handleClean = () =>{
+        setCurrentPokemon({})
     }
 
     return(
@@ -53,12 +65,10 @@ export const FormSearch = () => {
                 <label htmlFor="pokeName">Search a pokemon</label>
                 <input type="text" name='pokeName' value={pokemonName} onChange={ handleChange }  ref={refInput}/>
             </InputContainer>
-            
-
             <div className="buttons">
                 <button type="submit" name='search' >Search</button>
                 <button name='random' onClick={handleClick} >Random</button>
-                <button name='clean' onClick={()=>setCurrentPokemon({})} >Clean</button>
+                <button name='clean' onClick={handleClean} >Clean</button>
             </div>
         </Form>
     )
