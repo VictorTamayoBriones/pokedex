@@ -27,8 +27,14 @@ export default defineConfig({
             src: 'logo.svg',
             sizes: '512x512',
             type: 'image/svg'
+          },
+          {
+            src: 'logo.svg',
+            sizes: '144x144',
+            type: 'image/svg'
           }
-        ]
+        ],
+        prefer_related_applications: false
       }
       
     })
