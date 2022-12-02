@@ -14,6 +14,7 @@ export default defineConfig({
       includeAssets: ['logo.svg'],
       manifest: {
         name: 'My Pokedex',
+        background_color:"#ccc",
         short_name: 'Pokedex',
         description: 'This my awaesome pokedez and ir can talk!!!',
         theme_color: '#ffffff',
@@ -26,7 +27,8 @@ export default defineConfig({
           {
             src: 'logo.svg',
             sizes: '512x512',
-            type: 'image/svg'
+            type: 'image/svg',
+            purpose: "maskable"
           },
           {
             src: 'logo.svg',
